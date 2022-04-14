@@ -12,7 +12,7 @@ app.use(
 );
 
 require("./config/mongoose.config");
-require("./routes/project.routes")(app);
+require("./routes/product.routes")(app);
 
 app.listen(8000, () => {
     console.log("Listening on Port 8000")

@@ -2,7 +2,7 @@
 
 const mongoose = require("mongoose");
 
-const ProjectSchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, "A title is required"]
@@ -18,6 +18,6 @@ const ProjectSchema = new mongoose.Schema({
 },
 {timestamps: true})
 
-const Project = mongoose.model("Project", ProjectSchema)
+const Product = mongoose.model("Product", ProductSchema);
 
-module.exports = Project;
+module.exports = Product;

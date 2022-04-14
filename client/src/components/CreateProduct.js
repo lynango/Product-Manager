@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const CreateProject = (props) => {
 
+const CreateProduct = (props) => {
+
+    const { productList, setProductList } = props; // line added to define "setProjects and to display all the projects
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
@@ -10,7 +12,7 @@ const CreateProject = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        axios.post("http://localhost:8000/api/projects", {
+        axios.post("http://localhost:8000/api/products", {
             title,
             price,
             description
@@ -18,6 +20,7 @@ const CreateProject = (props) => {
         .then((res) => {
             console.log(res);
             console.log(res.data);
+                setProductList([...productList, res.data]);  // line added to display all the projects
                 setTitle("");
                 setPrice("");
                 setDescription("");
@@ -29,9 +32,9 @@ const CreateProject = (props) => {
 
     return (
         <div>
-            <h1>Project Manager</h1>
+            <header>Product Manager</header>
             <form onSubmit={submitHandler}>
-                <div>
+                <div className='form-fields'>
                     <label htmlFor='title'>Title: </label>
                     <input
                         onChange={(e) => setTitle(e.target.value)}
@@ -41,7 +44,7 @@ const CreateProject = (props) => {
                         />
                 </div>
                 <br/>
-                <div>
+                <div className='form-fields'>
                     <label htmlFor='price'>Price: </label>
                     <input
                         onChange={(e) => setPrice(e.target.value)}
@@ -51,7 +54,7 @@ const CreateProject = (props) => {
                         />
                 </div>
                 <br/>
-                <div>
+                <div className='form-fields'>
                     <label htmlFor='description'>Description: </label>
                     <input
                         onChange={(e) => setDescription(e.target.value)}
@@ -60,10 +63,10 @@ const CreateProject = (props) => {
                         type="text"
                         />
                 </div>
-                <button type="submit">Submit</button>
+                <button className="submit-button" type="submit">Submit</button>
             </form>
         </div>
     )
 }
 
-export default CreateProject;
+export default CreateProduct;

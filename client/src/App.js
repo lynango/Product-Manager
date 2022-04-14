@@ -1,12 +1,22 @@
+import React from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
-import CreateProject from './components/CreateProject';
+import Home from './views/Home';
+import Details from './components/Details';
+
 
 function App() {
   return (
-    <div className="App">
-      <CreateProject path="/" />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+            <Route element={<Home/>} path = "/"/>
+            <Route element={<Details/>} path = "/product/:id"/>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
