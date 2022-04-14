@@ -8,7 +8,8 @@ const Home = (props) => {
 
     return (
         <div>
-            <CreateProduct productList={productList} setProductList={setProductList}/>             
+            <CreateProduct productList={productList} setProductList={setProductList}/>
+            <hr />
             <ListAllProduct productList={productList} setProductList={setProductList}/>
         </div>
     );

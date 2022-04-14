@@ -8,7 +8,8 @@ header{
 }
 
 .form-fields{
-  color:rgb(136, 135, 135);
+  color: rgb(136, 135, 135);
+  font-size:larger;
   display: flex;
   justify-content: space-between;
   width: 260px;
@@ -24,6 +25,8 @@ header{
 }
 
 .submit-button{
+  color: rgb(53, 48, 48);
+  font-size:larger;
   padding: 10px 20px;
   margin: 10px;
   border: none;
